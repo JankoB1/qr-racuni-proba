@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0B6E4F" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <title>QR Računi, web proba</title>
+    <script type="module" crossorigin src="./assets/index-DlbhUC5p.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DOafmtbD.css">
+  </head>
+  <body>
+    <main>
+      <header class="top">
+        <h1>QR Računi</h1>
+        <span class="badge">web proba</span>
+      </header>
+
+      <section class="camera">
+        <div class="stage" id="stage">
+          <video id="video" playsinline muted autoplay></video>
+          <div class="frame" id="frame"></div>
+          <p class="hint" id="hint">Uključi kameru i stavi QR kod sa računa u okvir.</p>
+        </div>
+        <div class="controls">
+          <button id="start" class="primary">Uključi kameru</button>
+          <select id="cameraSelect" aria-label="Kamera" hidden></select>
+          <div id="zoomButtons" class="chips" hidden></div>
+          <button id="torch" hidden>Lampa</button>
+        </div>
+        <p class="reader-row">
+          <label>Čitač
+            <select id="readerSelect">
+              <option value="auto">automatski</option>
+              <option value="zxing">ZXing</option>
+            </select>
+          </label>
+          <span id="liveStats" class="muted"></span>
+        </p>
+      </section>
+
+      <section class="faded" id="faded">
+        <p class="muted" id="fadedHint">Izbledeo ili savijen račun koji kamera ne pročita:</p>
+        <div class="row">
+          <button id="snapshot" disabled>Slikaj iz pregleda</button>
+          <label class="button" for="photoInput">Fotografiši kamerom telefona</label>
+        </div>
+        <input type="file" id="photoInput" accept="image/*" capture="environment" hidden />
+        <label class="link" for="fileInput">ili izaberi sliku računa iz galerije</label>
+        <input type="file" id="fileInput" accept="image/*" hidden />
+      </section>
+
+      <section id="notice" class="notice" hidden></section>
+      <section id="progress" class="card" hidden></section>
+      <section id="result" class="card" hidden></section>
+      <section id="history" class="card"></section>
+
+      <details id="diag" class="card">
+        <summary>Dijagnostika za poređenje</summary>
+        <pre id="diagText"></pre>
+        <button id="copyDiag">Kopiraj izveštaj</button>
+      </details>
+    </main>
+  </body>
+</html>
